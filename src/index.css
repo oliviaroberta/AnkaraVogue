@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 24 100% 98%;
+    --foreground: 10 73% 11%;
+    --card: 24 100% 98%;
+    --card-foreground: 10 73% 11%;
+    --popover: 24 100% 98%;
+    --popover-foreground: 10 73% 11%;
+    --primary: 10 73% 11%;
+    --primary-foreground: 24 100% 98%;
+    --secondary: 10 60% 19%;
+    --secondary-foreground: 24 100% 98%;
+    --muted: 24 45% 94%;
+    --muted-foreground: 18 16% 35%;
+    --accent: 22 65% 92%;
+    --accent-foreground: 10 73% 11%;
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 24 100% 98%;
+    --border: 20 30% 83%;
+    --input: 20 30% 83%;
+    --ring: 10 60% 19%;
+    --gold: 33 54% 63%;
+    --radius: 1.25rem;
+    --sidebar-background: 24 100% 98%;
+    --sidebar-foreground: 10 73% 11%;
+    --sidebar-primary: 10 73% 11%;
+    --sidebar-primary-foreground: 24 100% 98%;
+    --sidebar-accent: 22 65% 92%;
+    --sidebar-accent-foreground: 10 73% 11%;
+    --sidebar-border: 20 30% 83%;
+    --sidebar-ring: 10 60% 19%;
+    --gradient-luxe: linear-gradient(145deg, #320f08 0%, #4f1f14 52%, #7b4833 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(10 73% 11% / 0.08) 0%, hsl(10 73% 11% / 0.76) 100%);
+    --gradient-cream: linear-gradient(180deg, #fffaf6 0%, #f8efe6 100%);
+    --shadow-elegant: 0 32px 80px -40px hsl(10 73% 11% / 0.48);
+    --shadow-soft: 0 22px 52px -36px hsl(10 73% 11% / 0.28);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(circle at top, hsl(20 70% 88% / 0.34), transparent 32%),
+      linear-gradient(180deg, #fffaf6 0%, #fcf4ec 100%);
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  img {
+    display: block;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: hsl(var(--secondary) / 0.18);
+  }
+}
+
+@layer components {
+  .story-link {
+    @apply relative inline-flex items-center gap-2 tracking-[0.18em] uppercase;
+  }
+
+  .story-link::after {
+    content: "";
+    @apply absolute left-0 -bottom-1 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300;
+  }
+
+  .story-link:hover::after,
+  .story-link[aria-current="page"]::after {
+    @apply scale-x-100;
+  }
+
+  .pattern-bg {
+    background-image:
+      linear-gradient(120deg, hsl(10 60% 19% / 0.02), transparent 34%),
+      radial-gradient(circle at 20% 20%, hsl(10 73% 11% / 0.015) 0, transparent 24%),
+      url("/pattern.jpg");
+    background-size: cover, cover, 520px;
+    background-position: center;
+    background-repeat: no-repeat, no-repeat, repeat;
+    opacity: 0.1;
+  }
+
+  .hero-pattern-bg {
+    background-image:
+      linear-gradient(120deg, hsl(10 60% 19% / 0.08), transparent 34%),
+      radial-gradient(circle at 20% 20%, hsl(10 73% 11% / 0.06) 0, transparent 24%),
+      radial-gradient(circle at 80% 0%, hsl(33 54% 63% / 0.08) 0, transparent 24%);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .ankara-panel {
+    background:
+      linear-gradient(135deg, hsl(10 73% 11% / 0.96), hsl(10 60% 19% / 0.94)),
+      repeating-linear-gradient(135deg, hsl(24 100% 98% / 0.04) 0 8px, transparent 8px 22px);
+  }
+
+  .editorial-card {
+    @apply rounded-[2rem] border border-border/70 bg-background/90 backdrop-blur-sm shadow-soft;
+  }
+
+  .section-kicker {
+    @apply font-cinzel text-[0.68rem] uppercase tracking-[0.34em];
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-500 ease-out hover:-translate-y-2 hover:shadow-elegant;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
