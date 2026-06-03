@@ -1,6 +1,7 @@
 import about from "@/assets/about.jpg";
 import hero from "@/assets/hero.jpg";
 import { Check } from "lucide-react";
+import { BackButton } from "@/components/BackButton";
 import { brand } from "@/data/brand";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -32,6 +33,7 @@ const bestSellers = products.filter((product) => product.badge === "Best Seller"
 const About = () => (
   <>
     <section className="pt-36 pb-16 container">
+      <BackButton className="mb-8" />
       <p className="section-kicker text-secondary mb-4">Our Story</p>
       <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-5xl text-balance">
         Heritage, <em className="font-serif-luxe italic font-light">reimagined</em> for the modern world.

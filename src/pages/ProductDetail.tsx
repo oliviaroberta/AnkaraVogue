@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import { BackButton } from "@/components/BackButton";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { Heart, MessageCircle, Minus, Plus, Star, Truck } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -30,6 +31,7 @@ const ProductDetail = () => {
   return (
     <>
       <section className="pt-32 pb-16 container">
+        <BackButton fallbackTo="/shop" className="mb-8" />
         <nav className="text-xs text-muted-foreground mb-8 font-cinzel">
           <Link to="/" className="hover:text-primary">HOME</Link> / <Link to="/shop" className="hover:text-primary">SHOP</Link> / <span className="text-primary">{product.name.toUpperCase()}</span>
         </nav>

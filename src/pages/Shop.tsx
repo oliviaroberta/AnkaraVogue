@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { BackButton } from "@/components/BackButton";
 import { categories, products, Product } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -20,6 +21,7 @@ const Shop = () => {
   return (
     <>
       <section className="pt-36 pb-12 container">
+        <BackButton className="mb-8" />
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end">
           <div>
             <p className="section-kicker text-secondary mb-3">Collection</p>

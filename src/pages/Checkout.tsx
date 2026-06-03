@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CreditCard, Smartphone, Tag } from "lucide-react";
 import { toast } from "sonner";
+import { BackButton } from "@/components/BackButton";
 import { useCart } from "@/context/CartContext";
 import { cn } from "@/lib/utils";
 
@@ -75,6 +76,7 @@ const Checkout = () => {
   if (items.length === 0) {
     return (
       <div className="container pt-40 pb-32 text-center">
+        <BackButton fallbackTo="/shop" className="mb-8" />
         <h1 className="font-display text-5xl">Your bag is empty</h1>
         <Link to="/shop" className="story-link font-cinzel text-xs mt-8 inline-flex">Discover The Collection</Link>
       </div>
@@ -83,6 +85,7 @@ const Checkout = () => {
 
   return (
     <section className="pt-32 pb-24 container">
+      <BackButton fallbackTo="/shop" className="mb-8" />
       <p className="section-kicker text-secondary mb-3">Checkout</p>
       <h1 className="font-display text-4xl md:text-6xl mb-4">Complete your order</h1>
       <p className="text-muted-foreground mb-12 max-w-2xl">Orders are confirmed directly with the atelier. Submit your details and we will continue payment confirmation through WhatsApp.</p>

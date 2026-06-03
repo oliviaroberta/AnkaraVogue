@@ -12,49 +12,56 @@ const Home = () => {
     <>
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 hero-pattern-bg" />
-        <div className="container relative grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center pt-32 pb-16">
-          <div className="space-y-8 animate-fade-in">
-            <p className="section-kicker text-secondary">The Heritage Edit / Accra Atelier</p>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-[5.4rem] leading-[0.92] text-balance">
-              Traditional <em className="font-serif-luxe italic font-light">Fabrics</em><br />
-              Refined For<br />
-              Contemporary <em className="font-serif-luxe italic font-light">Style</em>
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
-              {brand.heroBody}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/shop" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full font-cinzel text-xs hover:bg-secondary transition-all">
-                Shop Collection <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link to="/about" className="inline-flex items-center px-8 py-4 rounded-full border border-primary font-cinzel text-xs hover:bg-primary hover:text-primary-foreground transition-all">
-                Explore Styles
-              </Link>
-            </div>
-            <div className="grid grid-cols-3 gap-4 max-w-xl pt-4">
-              {[["Heritage", "African print culture"], ["Modern", "Current fashion styling"], ["Craft", "Refined atelier finish"]].map(([title, label]) => (
-                <div key={title} className="editorial-card p-5">
-                  <p className="font-display text-2xl">{title}</p>
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-muted-foreground mt-2">{label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative animate-scale-in">
+        <div className="container relative grid lg:grid-cols-[0.95fr_0.9fr] gap-10 lg:gap-12 items-center pt-28 pb-12">
+          <div className="relative animate-scale-in order-1">
             <div className="absolute -inset-4 bg-gradient-luxe opacity-20 rounded-[3rem] blur-3xl" />
-            <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-elegant">
+            <div className="relative aspect-[4/5] max-w-[29rem] mx-auto rounded-[2rem] overflow-hidden shadow-elegant">
               <img src={hero} alt="Ankara Vogue heritage couture" width={1536} height={1920} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-overlay" />
-              <div className="absolute bottom-8 left-8 right-8 text-primary-foreground">
-                <p className="section-kicker text-primary-foreground/70 mb-3">Featured Look</p>
-                <p className="font-display text-3xl">The Grace Set</p>
-                <p className="text-sm text-primary-foreground/80 mt-2 max-w-xs">Structured tailoring in premium Ankara wax cotton, cut to balance cultural richness with a modern silhouette.</p>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[44%]">
+                <div className="absolute inset-x-0 bottom-0 h-[38%] bg-black/24 backdrop-blur-2xl" />
+                <div className="absolute inset-x-0 bottom-[20%] h-[24%] bg-black/14 backdrop-blur-xl" />
+                <div className="absolute inset-x-0 bottom-[36%] h-[18%] bg-black/8 backdrop-blur-md" />
+                <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black/30 via-black/12 to-transparent" />
+              </div>
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="max-w-sm">
+                  <p className="section-kicker mb-3 text-amber-50 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">Featured Look</p>
+                  <p className="font-display text-3xl text-amber-50 drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)]">The Grace Set</p>
+                  <p className="mt-2 text-sm text-stone-100 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">Structured tailoring in premium Ankara wax cotton, cut to balance cultural richness with a modern silhouette.</p>
+                </div>
               </div>
             </div>
             <div className="hidden lg:block absolute -left-12 top-1/3 editorial-card p-5 animate-float">
               <Sparkles className="h-5 w-5 text-secondary mb-2" />
               <p className="font-display text-sm">Hand-tailored<br />in Accra</p>
+            </div>
+          </div>
+
+          <div className="space-y-6 animate-fade-in order-2">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.4rem] leading-[0.94] text-balance max-w-2xl">
+              Traditional <em className="font-serif-luxe italic font-light">Fabrics</em><br />
+              Refined For<br />
+              Contemporary <em className="font-serif-luxe italic font-light">Style</em>
+            </h1>
+            <p className="max-w-lg text-sm md:text-base text-muted-foreground leading-relaxed">
+              {brand.heroBody}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/shop" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-cinzel text-xs hover:bg-secondary transition-all">
+                Shop Collection <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link to="/about" className="inline-flex items-center px-7 py-3.5 rounded-full border border-primary font-cinzel text-xs hover:bg-primary hover:text-primary-foreground transition-all">
+                Explore Styles
+              </Link>
+            </div>
+            <div className="grid grid-cols-3 gap-3 max-w-lg pt-2">
+              {[["Heritage", "African print culture"], ["Modern", "Current fashion styling"], ["Craft", "Refined atelier finish"]].map(([title, label]) => (
+                <div key={title} className="editorial-card p-4">
+                  <p className="font-display text-xl">{title}</p>
+                  <p className="mt-2 text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { BackButton } from "@/components/BackButton";
 import { products } from "@/data/products";
 import { brand } from "@/data/brand";
 
@@ -18,6 +19,7 @@ const Contact = () => {
   return (
     <>
       <section className="pt-36 pb-16 container">
+        <BackButton className="mb-8" />
         <p className="section-kicker text-secondary mb-4">Get In Touch</p>
         <h1 className="font-display text-5xl md:text-7xl text-balance">Let's <em className="font-serif-luxe italic">talk</em>.</h1>
         <p className="text-muted-foreground mt-6 max-w-2xl text-lg leading-relaxed">
