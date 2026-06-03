@@ -18,19 +18,6 @@ const Home = () => {
             <div className="relative aspect-[4/5] max-w-[29rem] mx-auto rounded-[2rem] overflow-hidden shadow-elegant">
               <img src={hero} alt="Ankara Vogue heritage couture" width={1536} height={1920} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-overlay" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[44%]">
-                <div className="absolute inset-x-0 bottom-0 h-[38%] bg-black/24 backdrop-blur-2xl" />
-                <div className="absolute inset-x-0 bottom-[20%] h-[24%] bg-black/14 backdrop-blur-xl" />
-                <div className="absolute inset-x-0 bottom-[36%] h-[18%] bg-black/8 backdrop-blur-md" />
-                <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black/30 via-black/12 to-transparent" />
-              </div>
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="max-w-sm">
-                  <p className="section-kicker mb-3 text-amber-50 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">Featured Look</p>
-                  <p className="font-display text-3xl text-amber-50 drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)]">The Grace Set</p>
-                  <p className="mt-2 text-sm text-stone-100 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">Structured tailoring in premium Ankara wax cotton, cut to balance cultural richness with a modern silhouette.</p>
-                </div>
-              </div>
             </div>
             <div className="hidden lg:block absolute -left-12 top-1/3 editorial-card p-5 animate-float">
               <Sparkles className="h-5 w-5 text-secondary mb-2" />
@@ -64,18 +51,6 @@ const Home = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-primary text-primary-foreground py-6 overflow-hidden border-y border-secondary/60">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex items-center gap-16 px-8 font-cinzel text-sm">
-              {["Cultural Authenticity", "Modern Elegance", "Ethical Vision", "Bold Typography", "Contemporary Styling", "African Luxury"].map((text) => (
-                <span key={`${i}-${text}`}>{text}</span>
-              ))}
-            </div>
-          ))}
         </div>
       </section>
 
