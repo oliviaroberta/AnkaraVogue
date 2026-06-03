@@ -6,40 +6,40 @@
 
 @layer base {
   :root {
-    --background: 24 100% 98%;
-    --foreground: 10 73% 11%;
-    --card: 24 100% 98%;
-    --card-foreground: 10 73% 11%;
-    --popover: 24 100% 98%;
-    --popover-foreground: 10 73% 11%;
-    --primary: 10 73% 11%;
-    --primary-foreground: 24 100% 98%;
-    --secondary: 10 60% 19%;
-    --secondary-foreground: 24 100% 98%;
-    --muted: 24 45% 94%;
-    --muted-foreground: 18 16% 35%;
-    --accent: 22 65% 92%;
-    --accent-foreground: 10 73% 11%;
+    --background: 28 64% 97%;
+    --foreground: 15 43% 15%;
+    --card: 28 64% 98%;
+    --card-foreground: 15 43% 15%;
+    --popover: 28 64% 98%;
+    --popover-foreground: 15 43% 15%;
+    --primary: 14 57% 27%;
+    --primary-foreground: 28 64% 98%;
+    --secondary: 14 46% 37%;
+    --secondary-foreground: 28 64% 98%;
+    --muted: 28 38% 93%;
+    --muted-foreground: 16 28% 22%;
+    --accent: 24 56% 90%;
+    --accent-foreground: 15 43% 15%;
     --destructive: 0 72% 52%;
-    --destructive-foreground: 24 100% 98%;
-    --border: 20 30% 83%;
-    --input: 20 30% 83%;
-    --ring: 10 60% 19%;
-    --gold: 33 54% 63%;
+    --destructive-foreground: 28 64% 98%;
+    --border: 20 26% 78%;
+    --input: 20 26% 78%;
+    --ring: 14 46% 37%;
+    --gold: 32 50% 58%;
     --radius: 1.25rem;
-    --sidebar-background: 24 100% 98%;
-    --sidebar-foreground: 10 73% 11%;
-    --sidebar-primary: 10 73% 11%;
-    --sidebar-primary-foreground: 24 100% 98%;
-    --sidebar-accent: 22 65% 92%;
-    --sidebar-accent-foreground: 10 73% 11%;
-    --sidebar-border: 20 30% 83%;
-    --sidebar-ring: 10 60% 19%;
-    --gradient-luxe: linear-gradient(145deg, #320f08 0%, #4f1f14 52%, #7b4833 100%);
-    --gradient-overlay: linear-gradient(180deg, hsl(10 73% 11% / 0.08) 0%, hsl(10 73% 11% / 0.76) 100%);
-    --gradient-cream: linear-gradient(180deg, #fffaf6 0%, #f8efe6 100%);
-    --shadow-elegant: 0 32px 80px -40px hsl(10 73% 11% / 0.48);
-    --shadow-soft: 0 22px 52px -36px hsl(10 73% 11% / 0.28);
+    --sidebar-background: 28 64% 98%;
+    --sidebar-foreground: 15 43% 15%;
+    --sidebar-primary: 14 57% 27%;
+    --sidebar-primary-foreground: 28 64% 98%;
+    --sidebar-accent: 24 56% 90%;
+    --sidebar-accent-foreground: 15 43% 15%;
+    --sidebar-border: 20 26% 78%;
+    --sidebar-ring: 14 46% 37%;
+    --gradient-luxe: linear-gradient(145deg, #472016 0%, #6f3022 52%, #8c4732 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(15 43% 15% / 0.08) 0%, hsl(15 43% 15% / 0.72) 100%);
+    --gradient-cream: linear-gradient(180deg, #fdf7f1 0%, #f6eadf 100%);
+    --shadow-elegant: 0 32px 80px -40px hsl(15 43% 15% / 0.4);
+    --shadow-soft: 0 22px 52px -36px hsl(15 43% 15% / 0.22);
   }
 
   * {
@@ -53,8 +53,8 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image:
-      radial-gradient(circle at top, hsl(20 70% 88% / 0.34), transparent 32%),
-      linear-gradient(180deg, #fffaf6 0%, #fcf4ec 100%);
+      radial-gradient(circle at top, hsl(19 58% 84% / 0.28), transparent 32%),
+      linear-gradient(180deg, #fdf7f1 0%, #f8efe6 100%);
   }
 
   a {
@@ -76,7 +76,7 @@
 
 @layer components {
   .story-link {
-    @apply relative inline-flex items-center gap-2 tracking-[0.18em] uppercase;
+    @apply relative inline-flex items-center gap-2 tracking-[0.18em] uppercase font-medium;
   }
 
   .story-link::after {
@@ -111,8 +111,8 @@
 
   .ankara-panel {
     background:
-      linear-gradient(135deg, hsl(10 73% 11% / 0.96), hsl(10 60% 19% / 0.94)),
-      repeating-linear-gradient(135deg, hsl(24 100% 98% / 0.04) 0 8px, transparent 8px 22px);
+      linear-gradient(135deg, hsl(14 57% 27% / 0.97), hsl(14 46% 37% / 0.95)),
+      repeating-linear-gradient(135deg, hsl(28 64% 98% / 0.04) 0 8px, transparent 8px 22px);
   }
 
   .editorial-card {
@@ -120,7 +120,20 @@
   }
 
   .section-kicker {
-    @apply font-cinzel text-[0.68rem] uppercase tracking-[0.34em];
+    @apply font-cinzel text-[0.72rem] uppercase tracking-[0.3em] font-medium;
+  }
+
+  .font-display {
+    color: hsl(var(--primary));
+    font-weight: 600;
+  }
+
+  .font-serif-luxe {
+    font-weight: 500;
+  }
+
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
   }
 
   .hover-lift {

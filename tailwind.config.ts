@@ -9,8 +9,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Manrope", "system-ui", "sans-serif"],
-        display: ["Bodoni Moda", "serif"],
-        "serif-luxe": ["Cormorant Garamond", "serif"],
+        display: ["Cormorant Garamond", "serif"],
+        "serif-luxe": ["Bodoni Moda", "serif"],
         cinzel: ["Cinzel", "serif"],
       },
       colors: {

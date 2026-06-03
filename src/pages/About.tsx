@@ -1,5 +1,9 @@
 import about from "@/assets/about.jpg";
 import hero from "@/assets/hero.jpg";
+import { Check } from "lucide-react";
+import { brand } from "@/data/brand";
+import { products } from "@/data/products";
+import { ProductCard } from "@/components/shop/ProductCard";
 
 const timeline = [
   { y: "2019", t: "The Beginning", d: "A small Accra studio, three sewing machines, and a vision to redefine African luxury." },
@@ -23,6 +27,8 @@ const pillars = [
   },
 ];
 
+const bestSellers = products.filter((product) => product.badge === "Best Seller" || product.id === "ankara-grace" || product.id === "ankara-eshe");
+
 const About = () => (
   <>
     <section className="pt-36 pb-16 container">
@@ -43,11 +49,11 @@ const About = () => (
       <div className="space-y-6">
         <p className="section-kicker text-secondary">The Brand</p>
         <h2 className="font-display text-4xl md:text-5xl leading-tight">More than fabric.<br /><em className="font-serif-luxe italic">A movement.</em></h2>
-        <p className="text-lg text-muted-foreground leading-relaxed font-light">
-          Ankara Vogue is dedicated to redefining African fashion by seamlessly blending traditional Ankara prints with contemporary designs. We empower individuals with bold, stylish, culturally rich apparel that celebrates heritage while embracing modern elegance.
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          {brand.story} {brand.storyExtended}
         </p>
-        <p className="text-lg text-muted-foreground leading-relaxed font-light">
-          The brand identity was created to feel timeless and stylish, with elegant typography and color decisions inspired by vibrant Ankara prints to preserve cultural authenticity.
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          {brand.logoDirection}
         </p>
       </div>
     </section>
@@ -70,16 +76,81 @@ const About = () => (
           <p className="section-kicker text-primary-foreground/60 mb-4">Mission</p>
           <h3 className="font-display text-3xl md:text-4xl mb-4">Our Mission</h3>
           <p className="font-serif-luxe text-2xl italic leading-relaxed text-primary-foreground/90">
-            To redefine African fashion through bold, stylish, and culturally rich apparel that celebrates heritage while embracing modern elegance.
+            {brand.mission}
           </p>
         </div>
         <div>
           <p className="section-kicker text-primary-foreground/60 mb-4">Vision</p>
           <h3 className="font-display text-3xl md:text-4xl mb-4">Our Vision</h3>
           <p className="font-serif-luxe text-2xl italic leading-relaxed text-primary-foreground/90">
-            To become a globally recognized fashion brand that elevates African prints to the forefront of modern style through creativity, ethical production, and community empowerment.
+            {brand.vision}
           </p>
         </div>
+      </div>
+    </section>
+
+    <section className="container py-24">
+      <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+        <div>
+          <p className="section-kicker text-secondary mb-4">Identity Direction</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-tight">A brand language built to feel <em className="font-serif-luxe italic">timeless, stylish, and unmistakably African</em>.</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {brand.values.map((value) => (
+            <div key={value.title} className="editorial-card p-7 hover-lift">
+              <p className="font-display text-2xl mb-3">{value.title}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{value.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="container pb-24 md:pb-32">
+      <div className="grid lg:grid-cols-[0.88fr_1.12fr] gap-12 items-start">
+        <div>
+          <p className="section-kicker text-secondary mb-4">Brand Philosophy</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-tight">The full expression of the brand belongs <em className="font-serif-luxe italic">beyond the first impression</em>.</h2>
+        </div>
+        <div className="grid gap-4">
+          {brand.promises.map((item) => (
+            <div key={item} className="flex items-start gap-4 rounded-2xl bg-muted/70 px-5 py-4">
+              <div className="mt-0.5 rounded-full bg-secondary/12 p-2">
+                <Check className="h-4 w-4 text-secondary" />
+              </div>
+              <p className="text-sm leading-relaxed text-foreground/88">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="container pb-24 md:pb-32">
+      <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
+        <div>
+          <p className="section-kicker text-secondary mb-3">Brand Vision</p>
+          <h2 className="font-display text-4xl md:text-6xl">Designed To Travel Further</h2>
+        </div>
+        <p className="text-sm text-muted-foreground max-w-md">{brand.vision}</p>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {bestSellers.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}
+      </div>
+    </section>
+
+    <section id="testimonials" className="container pb-24 md:pb-32 scroll-mt-32">
+      <div className="text-center mb-14">
+        <p className="section-kicker text-secondary mb-3">Testimonials</p>
+        <h2 className="font-display text-4xl md:text-6xl">Worn & Adored</h2>
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">The client voice behind the brand: styling confidence, fit, and the feeling of wearing Ankara Vogue.</p>
+      </div>
+      <div className="grid md:grid-cols-3 gap-6">
+        {brand.testimonials.map((testimonial, i) => (
+          <div key={i} className="editorial-card p-7 md:p-8">
+            <p className="font-serif-luxe text-2xl italic leading-snug mb-5">"{testimonial.text}"</p>
+            <p className="font-cinzel text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{testimonial.name} / {testimonial.role}</p>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -94,7 +165,7 @@ const About = () => (
             <div className="font-display text-3xl md:text-5xl text-secondary group-hover:text-primary transition-colors">{item.y}</div>
             <div className="border-l border-border pl-6 md:pl-10 pb-2">
               <h4 className="font-display text-2xl md:text-3xl">{item.t}</h4>
-              <p className="text-muted-foreground mt-3 font-light leading-relaxed">{item.d}</p>
+              <p className="text-muted-foreground mt-3 leading-relaxed">{item.d}</p>
             </div>
           </div>
         ))}

@@ -16,6 +16,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const loc = useLocation();
+  const logoSrc = "/logo-navbar-stacked.png";
 
   useEffect(() => { setMenu(false); }, [loc.pathname]);
   useEffect(() => {
@@ -31,9 +32,12 @@ export const Navbar = () => {
       scrolled ? "bg-background/90 backdrop-blur-xl shadow-soft border-b border-border" : "bg-transparent"
     )}>
       <div className="container flex items-center justify-between h-20 md:h-24">
-        <Link to="/" className="flex flex-col leading-none">
-          <span className="font-display text-2xl md:text-3xl font-semibold tracking-tight">Ankara<span className="italic font-serif-luxe text-secondary">Vogue</span></span>
-          <span className="font-cinzel text-[9px] text-muted-foreground mt-1">GHANA / COUTURE</span>
+        <Link to="/" className="flex items-center" aria-label="Ankara Vogue home">
+          <img
+            src={logoSrc}
+            alt="Ankara Vogue"
+            className="h-12 w-auto object-contain md:h-14"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
@@ -70,7 +74,13 @@ export const Navbar = () => {
         menu ? "translate-x-0" : "translate-x-full"
       )}>
         <div className="flex justify-between items-center h-20 container">
-          <span className="font-display text-2xl">Ankara<span className="italic font-serif-luxe">Vogue</span></span>
+          <Link to="/" className="flex items-center pr-4" aria-label="Ankara Vogue home">
+            <img
+              src={logoSrc}
+              alt="Ankara Vogue"
+              className="h-10 w-auto object-contain"
+            />
+          </Link>
           <button onClick={() => setMenu(false)} aria-label="Close menu" className="p-3"><X className="h-6 w-6" strokeWidth={1.2} /></button>
         </div>
         <nav className="container flex flex-col gap-2 mt-12">

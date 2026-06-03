@@ -24,7 +24,7 @@ const Shop = () => {
           <div>
             <p className="section-kicker text-secondary mb-3">Collection</p>
             <h1 className="font-display text-5xl md:text-7xl">The Shop</h1>
-            <p className="text-muted-foreground mt-4 max-w-xl font-light leading-relaxed">
+            <p className="text-muted-foreground mt-4 max-w-xl leading-relaxed">
               Heritage couture made for the modern woman. Discover dresses, two-piece sets, tops, skirts, and custom fits from the Ankara Vogue atelier.
             </p>
           </div>
@@ -84,7 +84,7 @@ const Shop = () => {
                 <p className="section-kicker text-secondary">{quick.category}</p>
                 <h3 className="font-display text-3xl mt-2">{quick.name}</h3>
                 <p className="font-serif-luxe text-2xl mt-3">{formatMoney(quick.price)}</p>
-                <p className="text-sm text-muted-foreground mt-4 leading-relaxed font-light">{quick.description}</p>
+                <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{quick.description}</p>
                 <div className="mt-6">
                   <p className="font-cinzel text-[10px] mb-3">Size</p>
                   <div className="flex gap-2">

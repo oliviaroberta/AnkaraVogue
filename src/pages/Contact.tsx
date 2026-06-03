@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { products } from "@/data/products";
+import { brand } from "@/data/brand";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -19,8 +20,8 @@ const Contact = () => {
       <section className="pt-36 pb-16 container">
         <p className="section-kicker text-secondary mb-4">Get In Touch</p>
         <h1 className="font-display text-5xl md:text-7xl text-balance">Let's <em className="font-serif-luxe italic">talk</em>.</h1>
-        <p className="text-muted-foreground mt-6 max-w-2xl text-lg font-light leading-relaxed">
-          Bespoke commissions, press, partnerships, or simple enquiries. Reach the atelier directly by email, Instagram, or WhatsApp.
+        <p className="text-muted-foreground mt-6 max-w-2xl text-lg leading-relaxed">
+          Bespoke commissions, partnerships, press requests, or simple enquiries. Reach the atelier directly by email, Instagram, or WhatsApp.
         </p>
       </section>
 
@@ -65,19 +66,19 @@ const Contact = () => {
             <h3 className="font-display text-2xl mb-6">Atelier Contact</h3>
             <div className="space-y-5 text-sm">
               <div className="flex gap-4 items-start"><MapPin className="h-4 w-4 mt-0.5 text-secondary" /><span>Osu, Accra<br />Ghana</span></div>
-              <a href="tel:+233533824045" className="flex gap-4 items-start hover:text-primary"><Phone className="h-4 w-4 mt-0.5 text-secondary" /><span>+233 533 824 045</span></a>
-              <a href="mailto:hello@ankaravogue.com" className="flex gap-4 items-start hover:text-primary"><Mail className="h-4 w-4 mt-0.5 text-secondary" /><span>hello@ankaravogue.com</span></a>
-              <a href="https://instagram.com/ankaravogue.gh" target="_blank" rel="noopener noreferrer" className="flex gap-4 items-start hover:text-primary"><Instagram className="h-4 w-4 mt-0.5 text-secondary" /><span>@ankaravogue.gh</span></a>
+              <a href="tel:+233533824045" className="flex gap-4 items-start hover:text-primary"><Phone className="h-4 w-4 mt-0.5 text-secondary" /><span>{brand.phone}</span></a>
+              <a href={`mailto:${brand.email}`} className="flex gap-4 items-start hover:text-primary"><Mail className="h-4 w-4 mt-0.5 text-secondary" /><span>{brand.email}</span></a>
+              <a href={brand.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex gap-4 items-start hover:text-primary"><Instagram className="h-4 w-4 mt-0.5 text-secondary" /><span>{brand.instagram}</span></a>
             </div>
           </div>
 
-          <a href="https://wa.me/233533824045" target="_blank" rel="noopener noreferrer" className="ankara-panel flex items-center gap-4 text-primary-foreground rounded-[2rem] p-8 hover-lift">
+          <a href={brand.whatsappUrl} target="_blank" rel="noopener noreferrer" className="ankara-panel flex items-center gap-4 text-primary-foreground rounded-[2rem] p-8 hover-lift">
             <div className="h-14 w-14 rounded-full bg-primary-foreground/10 grid place-items-center">
               <MessageCircle className="h-6 w-6" />
             </div>
             <div>
               <p className="font-display text-xl">Chat on WhatsApp</p>
-              <p className="text-xs text-primary-foreground/60 font-cinzel mt-1 uppercase tracking-[0.2em]">Fastest Response / Mon-Sat</p>
+              <p className="text-xs text-primary-foreground/60 font-cinzel mt-1 uppercase tracking-[0.2em]">Fastest Response / Orders + Enquiries</p>
             </div>
           </a>
         </div>
@@ -86,11 +87,11 @@ const Contact = () => {
       <section className="container pb-24">
         <div className="text-center mb-10">
           <p className="section-kicker text-secondary mb-3">Instagram</p>
-          <h2 className="font-display text-3xl md:text-5xl">@ankaravogue.gh</h2>
+          <h2 className="font-display text-3xl md:text-5xl">{brand.instagram}</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {products.map((product) => (
-            <a key={product.id} href="https://instagram.com/ankaravogue.gh" target="_blank" rel="noopener noreferrer" className="group aspect-square overflow-hidden rounded-xl">
+            <a key={product.id} href={brand.instagramUrl} target="_blank" rel="noopener noreferrer" className="group aspect-square overflow-hidden rounded-xl">
               <img src={product.image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             </a>
           ))}

@@ -71,7 +71,7 @@ const ProductDetail = () => {
               <p className="font-serif-luxe text-3xl mt-4">GHS {product.price.toLocaleString()}</p>
             </div>
 
-            <p className="text-muted-foreground font-light leading-relaxed">{product.description}</p>
+            <p className="text-muted-foreground leading-relaxed">{product.description}</p>
 
             <div>
               <p className="font-cinzel text-[10px] mb-3">SIZE</p>
@@ -121,11 +121,11 @@ const ProductDetail = () => {
 
             <details className="border-t border-border pt-6">
               <summary className="font-cinzel text-xs cursor-pointer flex justify-between">FABRIC & CARE <span>+</span></summary>
-              <p className="text-sm text-muted-foreground mt-3 font-light">{product.fabric}. Dry clean recommended. Iron on reverse.</p>
+              <p className="text-sm text-muted-foreground mt-3">{product.fabric}. Dry clean recommended. Iron on reverse.</p>
             </details>
             <details className="border-t border-border pt-6">
               <summary className="font-cinzel text-xs cursor-pointer flex justify-between">DELIVERY <span>+</span></summary>
-              <p className="text-sm text-muted-foreground mt-3 font-light">Ghana 2-4 days. International 7-14 days. Express options at checkout.</p>
+              <p className="text-sm text-muted-foreground mt-3">Ghana 2-4 days. International 7-14 days. Express options at checkout.</p>
             </details>
           </div>
         </div>
