@@ -54,7 +54,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-28 md:pt-36 pb-28 md:pb-36">
+      <section className="container pt-20 md:pt-24 pb-24 md:pb-28">
         <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
           <div>
             <h2 className="font-display text-4xl md:text-6xl">Bestsellers</h2>
@@ -66,27 +66,27 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative py-32 md:py-44 bg-gradient-cream overflow-hidden">
-        <div className="absolute inset-0 pattern-bg opacity-[0.08]" />
+      <section className="relative py-24 md:py-32 ankara-panel overflow-hidden text-primary-foreground">
+        <div className="absolute inset-0 adinkra-overlay" />
         <div className="container relative">
           <div className="max-w-4xl mx-auto">
-            <div className="editorial-card p-8 md:p-10 lg:p-12">
+            <div className="rounded-[2rem] border border-primary-foreground/12 bg-black/10 p-8 md:p-10 lg:p-12 backdrop-blur-[2px]">
               <div className="space-y-7">
-                <p className="section-kicker text-secondary">About Ankara Vogue</p>
-                <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance">
+                <p className="section-kicker text-primary-foreground/72">About Ankara Vogue</p>
+                <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance text-primary-foreground">
                   Heritage, <em className="font-serif-luxe italic">reimagined</em>.
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                <p className="max-w-2xl text-lg leading-relaxed text-primary-foreground/84">
                   Ankara Vogue blends traditional African prints with modern elegance through bold tailoring and contemporary African luxury.
                 </p>
-                <Link to="/about" className="story-link font-cinzel text-xs text-primary">Discover Our Story</Link>
+                <Link to="/about" className="story-link font-cinzel text-xs text-primary-foreground">Discover Our Story</Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container py-32 md:py-44">
+      <section className="container py-24 md:py-32">
         <div className="text-center mb-14">
           <p className="section-kicker text-secondary mb-3">New Arrivals</p>
           <h2 className="font-display text-4xl md:text-6xl">Fresh From The Atelier</h2>
@@ -96,7 +96,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container py-32 md:py-36">
+      <section className="container py-20 md:py-24">
         <div className="flex justify-between items-end mb-10 flex-wrap gap-4">
           <div>
             <p className="section-kicker text-secondary mb-3">Client Praise</p>
@@ -115,7 +115,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-16 md:pt-24 pb-28 md:pb-36">
+      <section className="container pt-10 md:pt-14 pb-24 md:pb-28">
         <div className="editorial-card p-8 md:p-10 lg:p-12 text-center max-w-4xl mx-auto">
           <p className="section-kicker text-secondary mb-3">Instagram</p>
           <h2 className="font-display text-4xl md:text-6xl">{brand.instagram}</h2>
@@ -126,12 +126,12 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-16 md:pt-24 pb-28 md:pb-36">
+      <section className="container pt-10 md:pt-14 pb-24 md:pb-28">
         <div className="relative overflow-hidden rounded-[2.5rem] ankara-panel p-10 md:p-20 text-primary-foreground">
-          <div className="absolute inset-0 pattern-bg opacity-[0.12]" />
+          <div className="absolute inset-0 adinkra-overlay" />
           <div className="relative max-w-2xl">
-            <p className="section-kicker text-primary-foreground/60 mb-4">Custom Orders</p>
-            <h2 className="font-display text-4xl md:text-6xl mb-6">Custom-tailored, just for you.</h2>
+            <p className="section-kicker text-primary-foreground mb-4">Custom Orders</p>
+            <h2 className="font-display text-4xl md:text-6xl mb-6 text-primary-foreground">Custom-tailored, just for you.</h2>
             <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed">
               From measurements to final stitch, commission a one-of-one piece from our Accra atelier and complete your order directly through WhatsApp.
             </p>

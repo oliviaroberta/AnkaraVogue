@@ -74,11 +74,12 @@ const Contact = () => {
             </div>
           </div>
 
-          <a href={brand.whatsappUrl} target="_blank" rel="noopener noreferrer" className="ankara-panel flex items-center gap-4 text-primary-foreground rounded-[2rem] p-8 hover-lift">
-            <div className="h-14 w-14 rounded-full bg-primary-foreground/10 grid place-items-center">
+          <a href={brand.whatsappUrl} target="_blank" rel="noopener noreferrer" className="ankara-panel relative overflow-hidden flex items-center gap-4 text-primary-foreground rounded-[2rem] p-8 hover-lift">
+            <div className="absolute inset-0 adinkra-overlay" />
+            <div className="relative h-14 w-14 rounded-full bg-primary-foreground/10 grid place-items-center">
               <MessageCircle className="h-6 w-6" />
             </div>
-            <div>
+            <div className="relative">
               <p className="font-display text-xl">Chat on WhatsApp</p>
               <p className="text-xs text-primary-foreground/60 font-cinzel mt-1 uppercase tracking-[0.2em]">Fastest Response / Orders + Enquiries</p>
             </div>

@@ -111,8 +111,16 @@
 
   .ankara-panel {
     background:
-      linear-gradient(135deg, hsl(14 57% 27% / 0.97), hsl(14 46% 37% / 0.95)),
-      repeating-linear-gradient(135deg, hsl(28 64% 98% / 0.04) 0 8px, transparent 8px 22px);
+      linear-gradient(135deg, hsl(11 71% 17% / 0.94), hsl(13 64% 21% / 0.92)),
+      radial-gradient(circle at top, hsl(20 68% 26% / 0.1), transparent 58%);
+  }
+
+  .adinkra-overlay {
+    background-image: url("/background.png");
+    background-size: 480px;
+    background-position: center;
+    background-repeat: repeat;
+    opacity: 0.68;
   }
 
   .editorial-card {

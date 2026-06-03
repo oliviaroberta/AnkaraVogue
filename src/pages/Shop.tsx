@@ -22,7 +22,7 @@ const Shop = () => {
     <>
       <section className="pt-36 pb-12 container">
         <BackButton className="mb-8" />
-        <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end">
+        <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:gap-10 lg:items-end">
           <div>
             <p className="section-kicker text-secondary mb-3">Collection</p>
             <h1 className="font-display text-5xl md:text-7xl">The Shop</h1>
@@ -30,18 +30,18 @@ const Shop = () => {
               Heritage couture made for the modern woman. Discover dresses, two-piece sets, tops, skirts, and custom fits from the Ankara Vogue atelier.
             </p>
           </div>
-          <a href="https://wa.me/233533824045" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full border border-primary px-6 py-3 font-cinzel text-xs uppercase tracking-[0.2em] text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+          <a href="https://wa.me/233533824045" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-3 rounded-full border border-primary px-6 py-3 font-cinzel text-xs uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto sm:justify-self-start lg:justify-self-end">
             Direct Order <MessageCircle className="h-4 w-4" />
           </a>
         </div>
       </section>
 
       <section className="container pb-24">
-        <div className="grid lg:grid-cols-[240px_1fr] gap-10">
+        <div className="grid gap-8 xl:grid-cols-[240px_minmax(0,1fr)] xl:gap-10">
           <aside className="space-y-6">
-            <div className="editorial-card p-6 lg:sticky lg:top-32">
+            <div className="editorial-card p-5 sm:p-6 xl:sticky xl:top-32">
               <p className="section-kicker text-secondary mb-4">Categories</p>
-              <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2">
+              <div className="flex flex-wrap gap-2 pb-1 xl:flex-col">
                 {categories.map((category) => (
                   <button
                     key={category}
@@ -62,13 +62,13 @@ const Shop = () => {
             </div>
           </aside>
 
-          <div>
-            <div className="flex justify-between items-center border-b border-border pb-5 mb-8">
+          <div className="min-w-0">
+            <div className="mb-8 flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-muted-foreground">{list.length} pieces in this edit</p>
               <p className="section-kicker text-secondary">{cat === "All" ? "All categories" : cat}</p>
             </div>
 
-            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12">
+            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-12">
               {list.map((product) => (
                 <ProductCard key={product.id} product={product} onQuickView={(selected) => { setQuick(selected); setSize("M"); }} />
               ))}
@@ -78,18 +78,18 @@ const Shop = () => {
       </section>
 
       <Dialog open={!!quick} onOpenChange={(open) => !open && setQuick(null)}>
-        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-background rounded-[2rem]">
+        <DialogContent className="max-w-[calc(100vw-1.5rem)] rounded-[1.5rem] bg-background p-0 overflow-hidden md:max-w-4xl md:rounded-[2rem]">
           {quick && (
             <div className="grid md:grid-cols-2">
               <img src={quick.image} alt={quick.name} className="aspect-[4/5] object-cover w-full h-full" />
-              <div className="p-8 md:p-10 flex flex-col">
+              <div className="flex flex-col p-6 md:p-10">
                 <p className="section-kicker text-secondary">{quick.category}</p>
                 <h3 className="font-display text-3xl mt-2">{quick.name}</h3>
                 <p className="font-serif-luxe text-2xl mt-3">{formatMoney(quick.price)}</p>
                 <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{quick.description}</p>
                 <div className="mt-6">
                   <p className="font-cinzel text-[10px] mb-3">Size</p>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {["XS", "S", "M", "L", "XL"].map((option) => (
                       <button
                         key={option}

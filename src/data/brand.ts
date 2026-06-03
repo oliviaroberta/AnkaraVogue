@@ -10,9 +10,9 @@ export const brand = {
   heroBody:
     "Ankara Vogue blends traditional African prints with contemporary fashion through bold styling, elegant tailoring, and culturally rich design.",
   story:
-    "Ankara Vogue is dedicated to redefining African fashion by seamlessly blending traditional Ankara prints with contemporary designs.",
+    "Ankara Vogue reimagines African fashion through Ankara prints, modern tailoring, and elegant cultural style.",
   storyExtended:
-    "The brand empowers individuals with bold, stylish, and culturally rich apparel that celebrates heritage while embracing modern elegance.",
+    "Each piece balances heritage with contemporary sophistication.",
   logoDirection:
     "The identity is meant to feel timeless and stylish, using bold yet elegant typography and a palette inspired by vibrant Ankara prints to preserve cultural authenticity.",
   mission:

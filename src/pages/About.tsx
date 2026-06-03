@@ -72,7 +72,7 @@ const About = () => (
     </section>
 
     <section className="ankara-panel text-primary-foreground py-24 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 pattern-bg opacity-[0.08]" />
+      <div className="absolute inset-0 adinkra-overlay" />
       <div className="container relative grid md:grid-cols-2 gap-16">
         <div>
           <p className="section-kicker text-primary-foreground/60 mb-4">Mission</p>

@@ -9,7 +9,7 @@ export const ProductCard = ({ product, onQuickView }: { product: Product; onQuic
   const wished = wishlist.includes(product.id);
 
   return (
-    <div className="group max-w-[22rem] overflow-hidden rounded-[1.6rem] border border-border/70 bg-background shadow-soft transition-transform duration-300 hover:-translate-y-1">
+    <div className="group w-full overflow-hidden rounded-[1.6rem] border border-border/70 bg-background shadow-soft transition-transform duration-300 hover:-translate-y-1">
       <div className="relative aspect-[4/4.7] overflow-hidden bg-muted">
         <Link to={`/product/${product.id}`}>
           <img
@@ -33,7 +33,7 @@ export const ProductCard = ({ product, onQuickView }: { product: Product; onQuic
           <Heart className={cn("h-4 w-4", wished && "fill-current")} strokeWidth={1.4} />
         </button>
 
-        <div className="absolute inset-x-3 bottom-3 flex gap-2 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+        <div className="absolute inset-x-3 bottom-3 flex gap-2 translate-y-0 opacity-100 transition-all duration-500 md:translate-y-6 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
           <button
             onClick={() => add(product)}
             className="flex-1 bg-primary text-primary-foreground text-[11px] font-cinzel py-2.5 rounded-full hover:bg-secondary transition-colors flex items-center justify-center gap-2"
