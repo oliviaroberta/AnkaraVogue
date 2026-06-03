@@ -9,8 +9,8 @@ export const ProductCard = ({ product, onQuickView }: { product: Product; onQuic
   const wished = wishlist.includes(product.id);
 
   return (
-    <div className="group max-w-[22rem]">
-      <div className="relative overflow-hidden rounded-2xl bg-muted aspect-[4/4.7]">
+    <div className="group max-w-[22rem] overflow-hidden rounded-[1.6rem] border border-border/70 bg-background shadow-soft transition-transform duration-300 hover:-translate-y-1">
+      <div className="relative aspect-[4/4.7] overflow-hidden bg-muted">
         <Link to={`/product/${product.id}`}>
           <img
             src={product.image}
@@ -47,12 +47,16 @@ export const ProductCard = ({ product, onQuickView }: { product: Product; onQuic
           )}
         </div>
       </div>
-      <div className="mt-4 flex justify-between items-start gap-3">
-        <div>
-          <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{product.category}</p>
-          <Link to={`/product/${product.id}`} className="font-display text-[1.05rem] mt-1 block hover:italic transition-all leading-tight">{product.name}</Link>
+      <div className="border-t border-border/60 bg-background px-5 py-4">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{product.category}</p>
+            <Link to={`/product/${product.id}`} className="mt-1 block font-display text-[1.05rem] leading-tight transition-all hover:italic">
+              {product.name}
+            </Link>
+          </div>
+          <p className="mt-1 whitespace-nowrap font-serif-luxe text-base">GHS {product.price.toLocaleString()}</p>
         </div>
-        <p className="font-serif-luxe text-base mt-3 whitespace-nowrap">GHS {product.price.toLocaleString()}</p>
       </div>
     </div>
   );

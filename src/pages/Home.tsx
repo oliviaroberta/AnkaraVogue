@@ -42,7 +42,7 @@ const Home = () => {
                 Explore Styles
               </Link>
             </div>
-            <div className="grid grid-cols-3 gap-3 max-w-lg pt-2">
+            <div className="grid grid-cols-3 gap-3 max-w-lg pt-8 md:pt-10">
               {[["Heritage", "African print culture"], ["Modern", "Current fashion styling"], ["Craft", "Refined atelier finish"]].map(([title, label]) => (
                 <div key={title} className="editorial-card p-4">
                   <p className="font-display text-xl">{title}</p>
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-18 md:pt-24 pb-24 md:pb-32">
+      <section className="container pt-28 md:pt-36 pb-28 md:pb-36">
         <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
           <div>
             <h2 className="font-display text-4xl md:text-6xl">Bestsellers</h2>
@@ -66,7 +66,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative py-28 md:py-36 bg-gradient-cream overflow-hidden">
+      <section className="relative py-32 md:py-44 bg-gradient-cream overflow-hidden">
         <div className="absolute inset-0 pattern-bg opacity-[0.08]" />
         <div className="container relative">
           <div className="max-w-4xl mx-auto">
@@ -86,7 +86,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container py-28 md:py-36">
+      <section className="container py-32 md:py-44">
         <div className="text-center mb-14">
           <p className="section-kicker text-secondary mb-3">New Arrivals</p>
           <h2 className="font-display text-4xl md:text-6xl">Fresh From The Atelier</h2>
@@ -96,7 +96,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container py-24 md:py-28">
+      <section className="container py-32 md:py-36">
         <div className="flex justify-between items-end mb-10 flex-wrap gap-4">
           <div>
             <p className="section-kicker text-secondary mb-3">Client Praise</p>
@@ -115,7 +115,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-8 md:pt-12 pb-24 md:pb-32">
+      <section className="container pt-16 md:pt-24 pb-28 md:pb-36">
         <div className="editorial-card p-8 md:p-10 lg:p-12 text-center max-w-4xl mx-auto">
           <p className="section-kicker text-secondary mb-3">Instagram</p>
           <h2 className="font-display text-4xl md:text-6xl">{brand.instagram}</h2>
@@ -126,7 +126,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-8 md:pt-12 pb-24 md:pb-32">
+      <section className="container pt-16 md:pt-24 pb-28 md:pb-36">
         <div className="relative overflow-hidden rounded-[2.5rem] ankara-panel p-10 md:p-20 text-primary-foreground">
           <div className="absolute inset-0 pattern-bg opacity-[0.12]" />
           <div className="relative max-w-2xl">
