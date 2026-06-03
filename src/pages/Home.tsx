@@ -15,7 +15,7 @@ const Home = () => {
         <div className="container relative grid lg:grid-cols-[0.95fr_0.9fr] gap-10 lg:gap-12 items-center pt-28 pb-12">
           <div className="relative animate-scale-in order-1">
             <div className="absolute -inset-4 bg-gradient-luxe opacity-20 rounded-[3rem] blur-3xl" />
-            <div className="relative aspect-[4/5] max-w-[29rem] mx-auto rounded-[2rem] overflow-hidden shadow-elegant">
+            <div className="relative aspect-[4/5] max-w-[26rem] mx-auto rounded-[2rem] overflow-hidden shadow-elegant">
               <img src={hero} alt="Ankara Vogue heritage couture" width={1536} height={1920} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-overlay" />
             </div>
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pb-24 md:pb-32">
+      <section className="container pt-18 md:pt-24 pb-24 md:pb-32">
         <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
           <div>
             <h2 className="font-display text-4xl md:text-6xl">Bestsellers</h2>
@@ -66,7 +66,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative py-24 md:py-32 bg-gradient-cream overflow-hidden">
+      <section className="relative py-28 md:py-36 bg-gradient-cream overflow-hidden">
         <div className="absolute inset-0 pattern-bg opacity-[0.08]" />
         <div className="container relative">
           <div className="max-w-4xl mx-auto">
@@ -86,7 +86,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container py-24 md:py-32">
+      <section className="container py-28 md:py-36">
         <div className="text-center mb-14">
           <p className="section-kicker text-secondary mb-3">New Arrivals</p>
           <h2 className="font-display text-4xl md:text-6xl">Fresh From The Atelier</h2>
@@ -96,7 +96,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container py-20 md:py-24">
+      <section className="container py-24 md:py-28">
         <div className="flex justify-between items-end mb-10 flex-wrap gap-4">
           <div>
             <p className="section-kicker text-secondary mb-3">Client Praise</p>
@@ -115,7 +115,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pb-24 md:pb-32">
+      <section className="container pt-8 md:pt-12 pb-24 md:pb-32">
         <div className="editorial-card p-8 md:p-10 lg:p-12 text-center max-w-4xl mx-auto">
           <p className="section-kicker text-secondary mb-3">Instagram</p>
           <h2 className="font-display text-4xl md:text-6xl">{brand.instagram}</h2>
@@ -126,7 +126,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pb-24 md:pb-32">
+      <section className="container pt-8 md:pt-12 pb-24 md:pb-32">
         <div className="relative overflow-hidden rounded-[2.5rem] ankara-panel p-10 md:p-20 text-primary-foreground">
           <div className="absolute inset-0 pattern-bg opacity-[0.12]" />
           <div className="relative max-w-2xl">
