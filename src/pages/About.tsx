@@ -1,6 +1,6 @@
 import about from "@/assets/about.jpg";
 import hero from "@/assets/hero.jpg";
-import { Check } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import { BackButton } from "@/components/BackButton";
 import { brand } from "@/data/brand";
 import { products } from "@/data/products";
@@ -32,21 +32,26 @@ const bestSellers = products.filter((product) => product.badge === "Best Seller"
 
 const About = () => (
   <>
-    <section className="pt-36 pb-16 container">
+    <section className="container pt-36 pb-12">
       <BackButton className="mb-8" />
+      <nav className="mb-4 flex items-center gap-2 text-[10px] font-cinzel uppercase tracking-[0.24em] text-muted-foreground">
+        <a href="/" className="hover:text-primary">Home</a>
+        <ChevronRight className="h-3 w-3" />
+        <span className="text-primary">About</span>
+      </nav>
       <p className="section-kicker text-secondary mb-4">Our Story</p>
-      <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-5xl text-balance">
+      <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.97] max-w-4xl text-balance">
         Heritage, <em className="font-serif-luxe italic font-light">reimagined</em> for the modern world.
       </h1>
     </section>
 
-    <section className="container pb-24">
-      <div className="aspect-[21/9] rounded-[2rem] overflow-hidden shadow-elegant">
+    <section className="container pb-20">
+      <div className="aspect-[18/9] rounded-[2rem] overflow-hidden shadow-elegant">
         <img src={hero} alt="Ankara Vogue atelier and campaign imagery" className="w-full h-full object-cover" />
       </div>
     </section>
 
-    <section className="container pb-24 grid lg:grid-cols-[1fr_1.05fr] gap-16 items-center">
+    <section className="container pb-20 grid lg:grid-cols-[1fr_1.05fr] gap-12 items-center">
       <img src={about} alt="Ankara Vogue founder-inspired campaign portrait" className="rounded-[2rem] aspect-[4/5] object-cover shadow-soft" />
       <div className="space-y-6">
         <p className="section-kicker text-secondary">The Brand</p>
@@ -60,7 +65,7 @@ const About = () => (
       </div>
     </section>
 
-    <section className="container pb-24">
+    <section className="container pb-20">
       <div className="grid md:grid-cols-3 gap-5">
         {pillars.map((pillar) => (
           <div key={pillar.title} className="editorial-card p-7 hover-lift">
@@ -71,7 +76,7 @@ const About = () => (
       </div>
     </section>
 
-    <section className="ankara-panel text-primary-foreground py-24 md:py-32 relative overflow-hidden">
+    <section className="ankara-panel text-primary-foreground py-20 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 adinkra-overlay" />
       <div className="container relative grid md:grid-cols-2 gap-16">
         <div>
@@ -91,7 +96,7 @@ const About = () => (
       </div>
     </section>
 
-    <section className="container py-24">
+    <section className="container py-20">
       <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
         <div>
           <p className="section-kicker text-secondary mb-4">Identity Direction</p>
@@ -108,7 +113,7 @@ const About = () => (
       </div>
     </section>
 
-    <section className="container pb-24 md:pb-32">
+    <section className="container pb-20 md:pb-24">
       <div className="grid lg:grid-cols-[0.88fr_1.12fr] gap-12 items-start">
         <div>
           <p className="section-kicker text-secondary mb-4">Brand Philosophy</p>
@@ -127,7 +132,7 @@ const About = () => (
       </div>
     </section>
 
-    <section className="container pb-24 md:pb-32">
+    <section className="container pb-20 md:pb-24">
       <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
         <div>
           <p className="section-kicker text-secondary mb-3">Brand Vision</p>
@@ -135,12 +140,12 @@ const About = () => (
         </div>
         <p className="text-sm text-muted-foreground max-w-md">{brand.vision}</p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 justify-items-center lg:grid-cols-3 gap-4 md:gap-8">
         {bestSellers.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}
       </div>
     </section>
 
-    <section id="testimonials" className="container pb-24 md:pb-32 scroll-mt-32">
+    <section id="testimonials" className="container pb-20 md:pb-24 scroll-mt-32">
       <div className="text-center mb-14">
         <p className="section-kicker text-secondary mb-3">Testimonials</p>
         <h2 className="font-display text-4xl md:text-6xl">Worn & Adored</h2>
@@ -156,7 +161,7 @@ const About = () => (
       </div>
     </section>
 
-    <section className="container py-24 md:py-32">
+    <section className="container py-20 md:py-24">
       <div className="text-center mb-16">
         <p className="section-kicker text-secondary mb-3">Journey</p>
         <h2 className="font-display text-4xl md:text-6xl">The Atelier Story</h2>

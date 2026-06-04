@@ -4,7 +4,7 @@ import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { BackButton } from "@/components/BackButton";
 import { ProductCard } from "@/components/shop/ProductCard";
-import { Heart, MessageCircle, Minus, Plus, Star, Truck } from "lucide-react";
+import { ChevronRight, Heart, MessageCircle, Minus, Plus, Star, Truck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ProductDetail = () => {
@@ -30,13 +30,17 @@ const ProductDetail = () => {
 
   return (
     <>
-      <section className="pt-32 pb-16 container">
+      <section className="pt-32 pb-14 container">
         <BackButton fallbackTo="/shop" className="mb-8" />
-        <nav className="text-xs text-muted-foreground mb-8 font-cinzel">
-          <Link to="/" className="hover:text-primary">HOME</Link> / <Link to="/shop" className="hover:text-primary">SHOP</Link> / <span className="text-primary">{product.name.toUpperCase()}</span>
+        <nav className="mb-8 flex flex-wrap items-center gap-2 text-[10px] text-muted-foreground font-cinzel uppercase tracking-[0.24em]">
+          <Link to="/" className="hover:text-primary">Home</Link>
+          <ChevronRight className="h-3 w-3" />
+          <Link to="/shop" className="hover:text-primary">Shop</Link>
+          <ChevronRight className="h-3 w-3" />
+          <span className="text-primary">{product.name}</span>
         </nav>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16">
           <div>
             <div
               className="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-muted cursor-zoom-in"
@@ -62,8 +66,8 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          <div className="lg:sticky lg:top-32 lg:self-start space-y-6">
-            <div>
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <div className="rounded-[1.75rem] border border-border/70 bg-card px-6 py-6 md:px-7">
               <p className="font-cinzel text-[10px] text-secondary">{product.category.toUpperCase()}</p>
               <h1 className="font-display text-4xl md:text-5xl mt-2">{product.name}</h1>
               <div className="flex items-center gap-3 mt-3">
@@ -71,64 +75,63 @@ const ProductDetail = () => {
                 <span className="text-xs text-muted-foreground">142 reviews</span>
               </div>
               <p className="font-serif-luxe text-3xl mt-4">GHS {product.price.toLocaleString()}</p>
-            </div>
+              <p className="text-muted-foreground leading-relaxed mt-5">{product.description}</p>
 
-            <p className="text-muted-foreground leading-relaxed">{product.description}</p>
-
-            <div>
-              <p className="font-cinzel text-[10px] mb-3">SIZE</p>
-              <div className="flex gap-2">
-                {["XS", "S", "M", "L", "XL"].map((option) => (
-                  <button
-                    key={option}
-                    onClick={() => setSize(option)}
-                    className={cn(
-                      "h-12 w-12 rounded-full text-xs border transition-all",
-                      size === option ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary"
-                    )}
-                  >
-                    {option}
-                  </button>
-                ))}
+              <div className="mt-6">
+                <p className="font-cinzel text-[10px] mb-3">SIZE</p>
+                <div className="flex gap-2">
+                  {["XS", "S", "M", "L", "XL"].map((option) => (
+                    <button
+                      key={option}
+                      onClick={() => setSize(option)}
+                      className={cn(
+                        "h-12 w-12 rounded-full text-xs border transition-all",
+                        size === option ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary"
+                      )}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div>
-              <p className="font-cinzel text-[10px] mb-3">QUANTITY</p>
-              <div className="inline-flex items-center border border-border rounded-full">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} className="h-12 w-12 grid place-items-center"><Minus className="h-3.5 w-3.5" /></button>
-                <span className="w-8 text-center">{qty}</span>
-                <button onClick={() => setQty(qty + 1)} className="h-12 w-12 grid place-items-center"><Plus className="h-3.5 w-3.5" /></button>
+              <div className="mt-6">
+                <p className="font-cinzel text-[10px] mb-3">QUANTITY</p>
+                <div className="inline-flex items-center border border-border rounded-full">
+                  <button onClick={() => setQty(Math.max(1, qty - 1))} className="h-12 w-12 grid place-items-center"><Minus className="h-3.5 w-3.5" /></button>
+                  <span className="w-8 text-center">{qty}</span>
+                  <button onClick={() => setQty(qty + 1)} className="h-12 w-12 grid place-items-center"><Plus className="h-3.5 w-3.5" /></button>
+                </div>
               </div>
+
+              <div className="mt-6 flex gap-3 flex-wrap">
+                <button onClick={() => add(product, size, qty)} className="flex-1 min-w-[200px] bg-primary text-primary-foreground py-4 rounded-full font-cinzel text-xs hover:bg-secondary transition-colors">ADD TO BAG</button>
+                <button
+                  onClick={() => toggleWish(product.id)}
+                  aria-label="Wishlist"
+                  className={cn("h-14 w-14 grid place-items-center border border-primary rounded-full transition-all", wished && "bg-primary text-primary-foreground")}
+                >
+                  <Heart className={cn("h-4 w-4", wished && "fill-current")} />
+                </button>
+              </div>
+
+              <a href={`https://wa.me/233533824045?text=${waMsg}`} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-center gap-3 w-full border border-secondary text-secondary py-4 rounded-full font-cinzel text-xs hover:bg-secondary hover:text-primary-foreground transition-all">
+                <MessageCircle className="h-4 w-4" /> ORDER VIA WHATSAPP
+              </a>
+
+              <div className="mt-6 flex items-center gap-3 text-xs text-muted-foreground border-t border-border pt-6">
+                <Truck className="h-4 w-4" /> Free shipping within Ghana on orders over GHS 2,000.
+              </div>
+
+              <details className="border-t border-border pt-6 mt-6">
+                <summary className="font-cinzel text-xs cursor-pointer flex justify-between">FABRIC & CARE <span>+</span></summary>
+                <p className="text-sm text-muted-foreground mt-3">{product.fabric}. Dry clean recommended. Iron on reverse.</p>
+              </details>
+              <details className="border-t border-border pt-6">
+                <summary className="font-cinzel text-xs cursor-pointer flex justify-between">DELIVERY <span>+</span></summary>
+                <p className="text-sm text-muted-foreground mt-3">Ghana 2-4 days. International 7-14 days. Express options at checkout.</p>
+              </details>
             </div>
-
-            <div className="flex gap-3 flex-wrap">
-              <button onClick={() => add(product, size, qty)} className="flex-1 min-w-[200px] bg-primary text-primary-foreground py-4 rounded-full font-cinzel text-xs hover:bg-secondary transition-colors">ADD TO BAG</button>
-              <button
-                onClick={() => toggleWish(product.id)}
-                aria-label="Wishlist"
-                className={cn("h-14 w-14 grid place-items-center border border-primary rounded-full transition-all", wished && "bg-primary text-primary-foreground")}
-              >
-                <Heart className={cn("h-4 w-4", wished && "fill-current")} />
-              </button>
-            </div>
-
-            <a href={`https://wa.me/233533824045?text=${waMsg}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 w-full border border-secondary text-secondary py-4 rounded-full font-cinzel text-xs hover:bg-secondary hover:text-primary-foreground transition-all">
-              <MessageCircle className="h-4 w-4" /> ORDER VIA WHATSAPP
-            </a>
-
-            <div className="flex items-center gap-3 text-xs text-muted-foreground border-t border-border pt-6">
-              <Truck className="h-4 w-4" /> Free shipping within Ghana on orders over GHS 2,000.
-            </div>
-
-            <details className="border-t border-border pt-6">
-              <summary className="font-cinzel text-xs cursor-pointer flex justify-between">FABRIC & CARE <span>+</span></summary>
-              <p className="text-sm text-muted-foreground mt-3">{product.fabric}. Dry clean recommended. Iron on reverse.</p>
-            </details>
-            <details className="border-t border-border pt-6">
-              <summary className="font-cinzel text-xs cursor-pointer flex justify-between">DELIVERY <span>+</span></summary>
-              <p className="text-sm text-muted-foreground mt-3">Ghana 2-4 days. International 7-14 days. Express options at checkout.</p>
-            </details>
           </div>
         </div>
       </section>
@@ -154,7 +157,7 @@ const ProductDetail = () => {
 
       <section className="container pb-24">
         <h2 className="font-display text-3xl md:text-5xl mb-10">You may also love</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 justify-items-center lg:grid-cols-3 gap-4 md:gap-8">
           {related.map((item) => <ProductCard key={item.id} product={item} />)}
         </div>
       </section>

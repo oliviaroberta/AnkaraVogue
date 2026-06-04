@@ -5,7 +5,7 @@ import { brand } from "@/data/brand";
 export const Footer = () => (
   <footer className="relative ankara-panel text-primary-foreground mt-32 overflow-hidden">
     <div className="absolute inset-0 adinkra-overlay" />
-    <div className="container relative py-14 md:py-16 grid md:grid-cols-4 gap-8 md:gap-10">
+    <div className="container relative py-12 md:py-14 grid md:grid-cols-4 gap-8 md:gap-8">
       <div>
         <img
           src="/logo-navbar-stacked.png"

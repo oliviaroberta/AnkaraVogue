@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ChevronRight, Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { BackButton } from "@/components/BackButton";
 import { products } from "@/data/products";
@@ -18,16 +18,21 @@ const Contact = () => {
 
   return (
     <>
-      <section className="pt-36 pb-16 container">
+      <section className="container pt-36 pb-12">
         <BackButton className="mb-8" />
+        <nav className="mb-4 flex items-center gap-2 text-[10px] font-cinzel uppercase tracking-[0.24em] text-muted-foreground">
+          <a href="/" className="hover:text-primary">Home</a>
+          <ChevronRight className="h-3 w-3" />
+          <span className="text-primary">Contact</span>
+        </nav>
         <p className="section-kicker text-secondary mb-4">Get In Touch</p>
-        <h1 className="font-display text-5xl md:text-7xl text-balance">Let's <em className="font-serif-luxe italic">talk</em>.</h1>
-        <p className="text-muted-foreground mt-6 max-w-2xl text-lg leading-relaxed">
+        <h1 className="font-display text-4xl md:text-6xl text-balance">Let's <em className="font-serif-luxe italic">talk</em>.</h1>
+        <p className="text-muted-foreground mt-5 max-w-2xl text-base md:text-lg leading-relaxed">
           Bespoke commissions, partnerships, press requests, or simple enquiries. Reach the atelier directly by email, Instagram, or WhatsApp.
         </p>
       </section>
 
-      <section className="container pb-24 grid lg:grid-cols-[1fr_0.95fr] gap-16">
+      <section className="container pb-20 grid lg:grid-cols-[1fr_0.95fr] gap-12">
         <form onSubmit={onSubmit} className="editorial-card p-8 md:p-10 space-y-6">
           <div>
             <label className="font-cinzel text-[10px] block mb-2 uppercase tracking-[0.2em]">Name</label>
@@ -87,10 +92,10 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="container pb-24">
+      <section className="container pb-20">
         <div className="text-center mb-10">
           <p className="section-kicker text-secondary mb-3">Instagram</p>
-          <h2 className="font-display text-3xl md:text-5xl">{brand.instagram}</h2>
+          <h2 className="font-display text-3xl md:text-4xl">{brand.instagram}</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {products.map((product) => (

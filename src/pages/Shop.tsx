@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, ChevronRight, MessageCircle } from "lucide-react";
 import { BackButton } from "@/components/BackButton";
 import { categories, products, Product } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -20,14 +20,33 @@ const Shop = () => {
 
   return (
     <>
-      <section className="pt-36 pb-12 container">
+      <section className="border-b border-border/70 bg-background/80 pt-32 pb-5 backdrop-blur-sm">
+        <div className="container">
+          <div className="flex flex-col gap-3 text-center sm:flex-row sm:items-center sm:justify-center">
+            <p className="font-cinzel text-[10px] uppercase tracking-[0.28em] text-secondary">Ready To Wear</p>
+            <span className="hidden h-1 w-1 rounded-full bg-secondary/60 sm:block" />
+            <p className="font-cinzel text-[10px] uppercase tracking-[0.28em] text-secondary">Custom Orders Available</p>
+            <span className="hidden h-1 w-1 rounded-full bg-secondary/60 sm:block" />
+            <a href="https://wa.me/233533824045" target="_blank" rel="noopener noreferrer" className="font-cinzel text-[10px] uppercase tracking-[0.28em] text-secondary hover:text-primary">
+              Order On WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="container pt-14 pb-10 md:pt-16 md:pb-12">
         <BackButton className="mb-8" />
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:gap-10 lg:items-end">
           <div>
-            <p className="section-kicker text-secondary mb-3">Collection</p>
-            <h1 className="font-display text-5xl md:text-7xl">The Shop</h1>
-            <p className="text-muted-foreground mt-4 max-w-xl leading-relaxed">
-              Heritage couture made for the modern woman. Discover dresses, two-piece sets, tops, skirts, and custom fits from the Ankara Vogue atelier.
+            <nav className="mb-4 flex items-center gap-2 text-[10px] font-cinzel uppercase tracking-[0.24em] text-muted-foreground">
+              <Link to="/" className="hover:text-primary">Home</Link>
+              <ChevronRight className="h-3 w-3" />
+              <span className="text-primary">Shop</span>
+            </nav>
+            <p className="section-kicker text-secondary mb-3">Shop</p>
+            <h1 className="font-display text-4xl md:text-6xl">Ankara Vogue Collection</h1>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              Discover dresses, sets, tops, skirts, and tailored pieces shaped by African print heritage and refined for modern wardrobes.
             </p>
           </div>
           <a href="https://wa.me/233533824045" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-3 rounded-full border border-primary px-6 py-3 font-cinzel text-xs uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto sm:justify-self-start lg:justify-self-end">
@@ -39,16 +58,17 @@ const Shop = () => {
       <section className="container pb-24">
         <div className="grid gap-8 xl:grid-cols-[240px_minmax(0,1fr)] xl:gap-10">
           <aside className="space-y-6">
-            <div className="editorial-card p-5 sm:p-6 xl:sticky xl:top-32">
-              <p className="section-kicker text-secondary mb-4">Categories</p>
+            <div className="rounded-[1.75rem] border border-border/70 bg-card p-5 sm:p-6 xl:sticky xl:top-32">
+              <p className="section-kicker text-secondary mb-4">Browse</p>
+              <h2 className="font-display text-2xl mb-5">Shop by category</h2>
               <div className="flex flex-wrap gap-2 pb-1 xl:flex-col">
                 {categories.map((category) => (
                   <button
                     key={category}
                     onClick={() => setCat(category)}
                     className={cn(
-                      "px-5 py-3 rounded-full text-left font-cinzel text-[11px] uppercase tracking-[0.2em] whitespace-nowrap transition-all",
-                      cat === category ? "bg-primary text-primary-foreground" : "bg-background hover:bg-accent"
+                      "rounded-full border border-border/80 px-5 py-3 text-left font-cinzel text-[11px] uppercase tracking-[0.2em] whitespace-nowrap transition-all",
+                      cat === category ? "border-primary bg-primary text-primary-foreground" : "bg-background hover:border-primary/35 hover:bg-accent"
                     )}
                   >
                     {category}
@@ -56,19 +76,27 @@ const Shop = () => {
                 ))}
               </div>
               <div className="mt-8 border-t border-border pt-6">
-                <p className="font-display text-2xl mb-2">Need a custom fit?</p>
+                <p className="font-display text-xl mb-2">Need a custom fit?</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">Speak with the atelier directly for sizing guidance, custom measurements, and order confirmation.</p>
+                <a href="https://wa.me/233533824045" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 font-cinzel text-[10px] uppercase tracking-[0.22em] text-primary hover:text-secondary">
+                  Request bespoke <ArrowRight className="h-3.5 w-3.5" />
+                </a>
               </div>
             </div>
           </aside>
 
           <div className="min-w-0">
-            <div className="mb-8 flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-muted-foreground">{list.length} pieces in this edit</p>
-              <p className="section-kicker text-secondary">{cat === "All" ? "All categories" : cat}</p>
+            <div className="mb-8 rounded-[1.5rem] border border-border/70 bg-card px-5 py-4 sm:px-6">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-[10px] font-cinzel uppercase tracking-[0.24em] text-muted-foreground">Now Viewing</p>
+                  <p className="mt-1 text-sm text-foreground/80">{cat === "All" ? "All categories" : cat}</p>
+                </div>
+                <p className="font-cinzel text-[10px] uppercase tracking-[0.24em] text-secondary">{list.length} pieces available</p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-12">
+            <div className="grid grid-cols-2 justify-items-center gap-x-4 gap-y-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-12">
               {list.map((product) => (
                 <ProductCard key={product.id} product={product} onQuickView={(selected) => { setQuick(selected); setSize("M"); }} />
               ))}

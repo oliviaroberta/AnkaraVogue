@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Instagram, Star, Sparkles } from "lucide-react";
+import { ArrowRight, Instagram, Star } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import { products } from "@/data/products";
 import { brand } from "@/data/brand";
@@ -10,45 +10,35 @@ const bestSellers = products.filter((product) => product.badge === "Best Seller"
 const Home = () => {
   return (
     <>
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 hero-pattern-bg" />
-        <div className="container relative grid lg:grid-cols-[0.95fr_0.9fr] gap-10 lg:gap-12 items-center pt-28 pb-12">
-          <div className="relative animate-scale-in order-1">
-            <div className="absolute -inset-4 bg-gradient-luxe opacity-20 rounded-[3rem] blur-3xl" />
-            <div className="relative aspect-[4/5] max-w-[26rem] mx-auto rounded-[2rem] overflow-hidden shadow-elegant">
-              <img src={hero} alt="Ankara Vogue heritage couture" width={1536} height={1920} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-overlay" />
-            </div>
-            <div className="hidden lg:block absolute -left-12 top-1/3 editorial-card p-5 animate-float">
-              <Sparkles className="h-5 w-5 text-secondary mb-2" />
-              <p className="font-display text-sm">Hand-tailored<br />in Accra</p>
-            </div>
-          </div>
-
-          <div className="space-y-6 animate-fade-in order-2">
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.4rem] leading-[0.94] text-balance max-w-2xl">
-              Traditional <em className="font-serif-luxe italic font-light">Fabrics</em><br />
-              Refined For<br />
-              Contemporary <em className="font-serif-luxe italic font-light">Style</em>
+      <section className="relative min-h-screen overflow-hidden bg-[#6d4b34] text-primary-foreground">
+        <img
+          src={hero}
+          alt="Ankara Vogue heritage couture"
+          width={1536}
+          height={1920}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(42,22,12,0.18)_0%,rgba(42,22,12,0.3)_35%,rgba(42,22,12,0.82)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_34%)]" />
+        <div className="container relative flex min-h-screen items-end pb-16 pt-44 md:pb-20 md:pt-48">
+          <div className="max-w-3xl space-y-5 animate-fade-in">
+            <h1 className="font-display text-4xl leading-[0.98] text-primary-foreground sm:text-5xl md:text-6xl lg:text-[5.2rem]">
+              Rooted in <em className="font-serif-luxe italic text-primary-foreground">Heritage</em>,
+              <br />
+              fluent in <em className="font-serif-luxe italic text-primary-foreground">Print</em> and
+              <br />
+              <em className="font-serif-luxe italic text-primary-foreground">Colour</em>.
             </h1>
-            <p className="max-w-lg text-sm md:text-base text-muted-foreground leading-relaxed">
-              {brand.heroBody}
+            <p className="max-w-xl text-base text-primary-foreground/82 md:text-lg">
+              Designed for the unforgettable woman.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/shop" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-cinzel text-xs hover:bg-secondary transition-all">
-                Shop Collection <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link to="/shop" className="group inline-flex items-center gap-3 border border-primary-foreground/70 bg-primary-foreground/8 px-8 py-4 font-cinzel text-xs uppercase tracking-[0.24em] text-primary-foreground backdrop-blur-sm transition-all hover:bg-primary-foreground hover:text-primary">
+                Shop Here <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="/about" className="inline-flex items-center px-7 py-3.5 rounded-full border border-primary font-cinzel text-xs hover:bg-primary hover:text-primary-foreground transition-all">
+              <Link to="/about" className="inline-flex items-center border border-primary-foreground/40 px-8 py-4 font-cinzel text-xs uppercase tracking-[0.24em] text-primary-foreground/86 transition-all hover:border-primary-foreground hover:bg-primary-foreground/10">
                 Explore Styles
               </Link>
-            </div>
-            <div className="grid grid-cols-3 gap-3 max-w-lg pt-8 md:pt-10">
-              {[["Heritage", "African print culture"], ["Modern", "Current fashion styling"], ["Craft", "Refined atelier finish"]].map(([title, label]) => (
-                <div key={title} className="editorial-card p-4">
-                  <p className="font-display text-xl">{title}</p>
-                  <p className="mt-2 text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{label}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -57,26 +47,29 @@ const Home = () => {
       <section className="container pt-20 md:pt-24 pb-24 md:pb-28">
         <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
           <div>
-            <h2 className="font-display text-4xl md:text-6xl">Bestsellers</h2>
+            <p className="section-kicker text-secondary mb-3">Most Loved</p>
+            <h2 className="font-display text-4xl md:text-5xl">Bestsellers</h2>
           </div>
           <Link to="/shop" className="story-link font-cinzel text-xs">View All</Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 justify-items-center lg:grid-cols-3 gap-4 md:gap-8">
           {bestSellers.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}
         </div>
       </section>
 
-      <section className="relative py-24 md:py-32 ankara-panel overflow-hidden text-primary-foreground">
+      <section className="relative py-20 md:py-24 ankara-panel overflow-hidden text-primary-foreground">
         <div className="absolute inset-0 adinkra-overlay" />
         <div className="container relative">
-          <div className="max-w-4xl mx-auto">
-            <div className="rounded-[2rem] border border-primary-foreground/12 bg-black/10 p-8 md:p-10 lg:p-12 backdrop-blur-[2px]">
-              <div className="space-y-7">
+          <div className="max-w-5xl">
+            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+              <div>
                 <p className="section-kicker text-primary-foreground/72">About Ankara Vogue</p>
-                <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance text-primary-foreground">
+              </div>
+              <div className="space-y-5">
+                <h2 className="font-display text-4xl md:text-5xl leading-[1.02] text-balance text-primary-foreground">
                   Heritage, <em className="font-serif-luxe italic">reimagined</em>.
                 </h2>
-                <p className="max-w-2xl text-lg leading-relaxed text-primary-foreground/84">
+                <p className="max-w-2xl text-base md:text-lg leading-relaxed text-primary-foreground/84">
                   Ankara Vogue blends traditional African prints with modern elegance through bold tailoring and contemporary African luxury.
                 </p>
                 <Link to="/about" className="story-link font-cinzel text-xs text-primary-foreground">Discover Our Story</Link>
@@ -86,21 +79,24 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container py-24 md:py-32">
-        <div className="text-center mb-14">
+      <section className="container py-24 md:py-28">
+        <div className="mb-14 flex justify-between items-end gap-4 flex-wrap">
+          <div>
           <p className="section-kicker text-secondary mb-3">New Arrivals</p>
-          <h2 className="font-display text-4xl md:text-6xl">Fresh From The Atelier</h2>
+          <h2 className="font-display text-4xl md:text-5xl">Fresh From The Atelier</h2>
+          </div>
+          <Link to="/shop" className="story-link font-cinzel text-xs">Shop New In</Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 justify-items-center lg:grid-cols-3 gap-4 md:gap-8">
           {products.slice(3, 6).map((product) => <ProductCard key={product.id} product={product} />)}
         </div>
       </section>
 
-      <section className="container py-20 md:py-24">
+      <section className="container py-16 md:py-20">
         <div className="flex justify-between items-end mb-10 flex-wrap gap-4">
           <div>
             <p className="section-kicker text-secondary mb-3">Client Praise</p>
-            <h2 className="font-display text-3xl md:text-5xl">What Clients Say</h2>
+            <h2 className="font-display text-3xl md:text-4xl">What Clients Say</h2>
           </div>
           <Link to="/about#testimonials" className="story-link font-cinzel text-xs">View All Testimonials</Link>
         </div>
@@ -115,10 +111,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-10 md:pt-14 pb-24 md:pb-28">
+      <section className="container pt-6 md:pt-8 pb-20 md:pb-24">
         <div className="editorial-card p-8 md:p-10 lg:p-12 text-center max-w-4xl mx-auto">
           <p className="section-kicker text-secondary mb-3">Instagram</p>
-          <h2 className="font-display text-4xl md:text-6xl">{brand.instagram}</h2>
+          <h2 className="font-display text-3xl md:text-4xl">{brand.instagram}</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">A living archive of prints, fittings, look details, and the evolving identity behind the atelier.</p>
           <a href={brand.instagramUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 mt-8 bg-primary text-primary-foreground px-8 py-4 rounded-full font-cinzel text-xs hover:bg-secondary transition-colors">
             Follow On Instagram <Instagram className="h-4 w-4" />
@@ -126,7 +122,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pt-10 md:pt-14 pb-24 md:pb-28">
+      <section className="container pt-8 md:pt-10 pb-24 md:pb-28">
         <div className="relative overflow-hidden rounded-[2.5rem] ankara-panel p-10 md:p-20 text-primary-foreground">
           <div className="absolute inset-0 adinkra-overlay" />
           <div className="relative max-w-2xl">
