@@ -34,19 +34,6 @@ export const Navbar = () => {
         ? "border-transparent bg-transparent"
         : "border-b border-border/80 bg-background/95 backdrop-blur-xl shadow-soft"
     )}>
-      <div className={cn(
-        "border-b transition-colors",
-        isHomeHero ? "border-white/15 bg-transparent text-primary-foreground" : "border-border/60 bg-background/70 text-secondary"
-      )}>
-        <div className="container flex h-9 items-center justify-center text-center">
-          <p className={cn(
-            "font-cinzel text-[10px] font-semibold uppercase tracking-[0.28em]",
-            isHomeHero ? "text-primary-foreground" : "text-secondary"
-          )}>
-            MADE IN GHANA | WORLDWIDE SHIPPING
-          </p>
-        </div>
-      </div>
       <div className="container flex items-center justify-between h-[4.6rem] md:h-[5.1rem]">
         <button
           onClick={() => setMenu(true)}
@@ -154,10 +141,10 @@ export const Navbar = () => {
       </div>
 
       <div className={cn(
-        "fixed inset-0 z-50 bg-background transition-transform duration-500 md:hidden",
-        menu ? "translate-x-0" : "translate-x-full"
+        "fixed inset-0 z-50 h-screen overflow-y-auto bg-[hsl(var(--background))] transition-transform duration-500 md:hidden",
+        menu ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="flex justify-between items-center h-20 container border-b border-border/70">
+        <div className="sticky top-0 z-10 flex justify-between items-center h-20 container border-b border-border/70 bg-[hsl(var(--background))]">
           <Link to="/" className="flex items-center pr-4" aria-label="Ankara Vogue home">
             <img
               src={logoSrc}
@@ -167,7 +154,7 @@ export const Navbar = () => {
           </Link>
           <button onClick={() => setMenu(false)} aria-label="Close menu" className="p-3"><X className="h-6 w-6" strokeWidth={1.2} /></button>
         </div>
-        <nav className="container flex flex-col gap-2 mt-12">
+        <nav className="container flex min-h-[calc(100vh-5rem)] flex-col gap-2 bg-[hsl(var(--background))] py-12">
           {links.map((link, i) => (
             <NavLink
               key={link.to}

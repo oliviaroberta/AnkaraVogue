@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CartProvider } from "@/context/CartContext";
+import { ScrollManager } from "@/components/ScrollManager";
 import { Layout } from "@/components/layout/Layout";
 import Index from "./pages/Index.tsx";
 import Shop from "./pages/Shop.tsx";
@@ -24,6 +25,7 @@ const App = () => (
       <Sonner />
       <CartProvider>
         <BrowserRouter>
+          <ScrollManager />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/shop" element={wrap(<Shop />)} />

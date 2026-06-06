@@ -41,7 +41,7 @@ export const Footer = () => (
         </a>
       </div>
     </div>
-    <div className="container border-t border-primary-foreground/10 py-5 text-xs text-primary-foreground/50 flex flex-col md:flex-row justify-between gap-2">
+    <div className="container border-t border-primary-foreground/15 py-5 text-xs text-primary-foreground flex flex-col md:flex-row justify-between gap-2">
       <p>(c) {new Date().getFullYear()} Ankara Vogue. All rights reserved.</p>
       <p>Crafted with heritage in Accra, Ghana.</p>
     </div>
