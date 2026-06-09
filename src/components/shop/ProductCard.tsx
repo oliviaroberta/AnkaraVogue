@@ -9,8 +9,8 @@ export const ProductCard = ({ product, onQuickView }: { product: Product; onQuic
   const wished = wishlist.includes(product.id);
 
   return (
-    <div className="group mx-auto overflow-hidden border border-border/70 bg-background shadow-soft transition-transform duration-300 hover:-translate-y-1" style={{ width: "186px" }}>
-      <div className="relative overflow-hidden bg-muted" style={{ height: "231.53px" }}>
+    <div className="group w-full max-w-[186px] overflow-hidden border border-border/70 bg-background shadow-soft transition-transform duration-300 hover:-translate-y-1 md:max-w-[240px] lg:max-w-[280px]">
+      <div className="relative aspect-[186/231.53] overflow-hidden bg-muted">
         <Link to={`/product/${product.id}`}>
           <img
             src={product.image}

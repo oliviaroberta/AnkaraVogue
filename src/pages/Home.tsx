@@ -57,7 +57,7 @@ const Home = () => {
             View All
           </Link>
         </div>
-        <div className="grid grid-cols-2 justify-items-center lg:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">
           {bestSellers.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}
         </div>
       </section>
@@ -102,7 +102,7 @@ const Home = () => {
             Shop New In
           </Link>
         </div>
-        <div className="grid grid-cols-2 justify-items-center lg:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3">
           {products.slice(3, 6).map((product) => <ProductCard key={product.id} product={product} />)}
         </div>
       </section>

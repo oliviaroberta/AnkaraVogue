@@ -1,10 +1,7 @@
 import about from "@/assets/about.jpg";
-import hero from "@/assets/hero.jpg";
 import { Check, ChevronRight } from "lucide-react";
 import { BackButton } from "@/components/BackButton";
 import { brand } from "@/data/brand";
-import { products } from "@/data/products";
-import { ProductCard } from "@/components/shop/ProductCard";
 
 const timeline = [
   { y: "2019", t: "The Beginning", d: "A small Accra studio, three sewing machines, and a vision to redefine African luxury." },
@@ -28,27 +25,16 @@ const pillars = [
   },
 ];
 
-const bestSellers = products.filter((product) => product.badge === "Best Seller" || product.id === "ankara-grace" || product.id === "ankara-eshe");
-
 const About = () => (
   <>
-    <section className="container pt-36 pb-12">
+    <section className="container pt-36 pb-8">
       <BackButton className="mb-8" />
       <nav className="mb-4 flex items-center gap-2 text-[10px] font-cinzel uppercase tracking-[0.24em] text-muted-foreground">
         <a href="/" className="hover:text-primary">Home</a>
         <ChevronRight className="h-3 w-3" />
         <span className="text-primary">About</span>
       </nav>
-      <p className="section-kicker text-secondary mb-4">Our Story</p>
-      <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.97] max-w-4xl text-balance">
-        Heritage, <em className="font-serif-luxe italic font-light">reimagined</em> for the modern world.
-      </h1>
-    </section>
-
-    <section className="container pb-20">
-      <div className="aspect-[18/9] rounded-[2rem] overflow-hidden shadow-elegant">
-        <img src={hero} alt="Ankara Vogue atelier and campaign imagery" className="w-full h-full object-cover" />
-      </div>
+      <p className="section-kicker text-secondary">Our Story</p>
     </section>
 
     <section className="container pb-20 grid lg:grid-cols-[1fr_1.05fr] gap-12 items-center">
@@ -139,9 +125,6 @@ const About = () => (
           <h2 className="font-display text-4xl md:text-6xl">Designed To Travel Further</h2>
         </div>
         <p className="text-sm text-muted-foreground max-w-md">{brand.vision}</p>
-      </div>
-      <div className="grid grid-cols-2 justify-items-center lg:grid-cols-3 gap-4 md:gap-8">
-        {bestSellers.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}
       </div>
     </section>
 

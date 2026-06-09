@@ -96,7 +96,7 @@ const Shop = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 justify-items-center gap-x-4 gap-y-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-12">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-12">
               {list.map((product) => (
                 <ProductCard key={product.id} product={product} onQuickView={(selected) => { setQuick(selected); setSize("M"); }} />
               ))}
